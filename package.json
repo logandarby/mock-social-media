@@ -1,0 +1,25 @@
+{
+  "name": "mock-social-media",
+  "version": "1.0.0",
+  "description": "An app I created to learn about databases and user authentication, and to practice the MERNG stack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logandarby/mock-social-media.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/logandarby/mock-social-media/issues"
+  },
+  "homepage": "https://github.com/logandarby/mock-social-media#readme",
+  "dependencies": {
+    "apollo-server": "^2.25.2",
+    "graphql": "^15.5.1",
+    "mongoose": "^5.13.1"
+  }
+}
