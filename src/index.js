@@ -1,15 +1,27 @@
 import { ApolloServer, gql } from "apollo-server";
+import mongoose from "mongoose";
+
+import { MONGODB_URI } from "./config.js";
+import Post from "./models/Post.js";
+import User from "./models/user.js";
 
 const typeDefs = gql`
   type Query {
-    sayHi: String!
+    getPosts: [Post]
+  }
+  type Post {
+    id: ID!
+    body: String!
+    createdAt: String!
+    username: String!
   }
 `;
 
 const resolvers = {
   Query: {
-    sayHi: () => {
-      return "Hi!";
+    getPosts: async () => {
+      const posts = await Post.find();
+      return posts;
     },
   },
 };
@@ -20,6 +32,12 @@ const server = new ApolloServer({
 });
 const PORT = process.env.PORT ?? 5000;
 
-server.listen({ port: PORT }).then((res) => {
-  console.log(`Server running at ${res.url}`);
-});
+mongoose
+  .connect(MONGODB_URI, { useNewUrlParser: true })
+  .then(() => {
+    console.log("MongoDB database connected 💾");
+    return server.listen({ port: PORT });
+  })
+  .then((res) => {
+    console.log(`Server running at ${res.url} 🚀`);
+  });
