@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "An app I created to learn about databases and user authentication, and to practice the MERNG stack.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
     "apollo-server": "^2.25.2",
     "graphql": "^15.5.1",
     "mongoose": "^5.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
   }
 }
